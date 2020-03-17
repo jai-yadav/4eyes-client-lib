@@ -2,10 +2,6 @@
 
 This repository contains the client library side implementation of Four Eyes Approval Protocol. Using this a Data Owner component can submit the pending requests and upon Approval/Rejection of these requests Data Owner will be notified to process them.
 
-[Four Eyes Approval Protocol Specification](https://git.iontrading.com/cat-core/4eyes-server/blob/develop/docs/Four-Eyes%20Approval%20Specification.md)
-
-[Four Eyes Approval Workflow](https://git.iontrading.com/cat-core/4eyes-server/blob/develop/docs/Four-Eyes%20Protocol%20and%20Workflow.md)
-
 ## Using this library
 
 To integrate with Four Eyes Client Library, Data Owner have to include FourEyesModule. This will make FourEyesService available to Data Owner which will expose the required API's to interact with Four Eyes Server.
