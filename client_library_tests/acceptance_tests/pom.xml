@@ -1,0 +1,143 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>com.iontrading</groupId>
+		<artifactId>ion-parent</artifactId>
+		<version>1.1.9</version>
+	</parent>
+
+	<groupId>com.iontrading.cat.foureyes</groupId>
+	<artifactId>4eyes_client_lib_at</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<name>4eyes_client_lib_at</name>
+	<description>A robot framework test definition for the 4Eyes Client library</description>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<java.version>1.8</java.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.iontrading.robotframework</groupId>
+			<artifactId>itaslibrary</artifactId>
+			<version>1.1.1</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>com.github.wvengen</groupId>
+				<artifactId>proguard-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>none</phase>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.robotframework</groupId>
+				<artifactId>robotframework-maven-plugin</artifactId>
+				<version>1.4.7</version>
+				<inherited>true</inherited>
+				<dependencies>
+					<dependency>
+						<groupId>org.robotframework</groupId>
+						<artifactId>robotframework</artifactId>
+						<version>3.0.4</version>
+					</dependency>
+				</dependencies>
+				<executions>
+					<execution>
+						<id>run-only</id>
+						<phase>integration-test</phase>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<outputDirectory>${project.build.directory}/robotframework</outputDirectory>
+					<suites>
+						<suite>${step}</suite>
+						<suite>${step2}</suite>
+						<suite>${step3}</suite>
+					</suites>
+					<includes>
+						<include>${tag}</include>
+					</includes>
+					<nonCriticalTags>
+						<nonCriticalTag>UnderDevelopment</nonCriticalTag>
+						<nonCriticalTag>unstable</nonCriticalTag>
+					</nonCriticalTags>
+					<excludes>
+						<exclude>ignored</exclude>
+						<exclude>investigated</exclude>
+						<exclude>${exclude}</exclude>
+					</excludes>
+
+					<!-- Add the 'support' folder to the classpath -->
+					<extraPathDirectories>
+						<extraPathDirectory>${project.basedir}/src/test/resources/support</extraPathDirectory>
+					</extraPathDirectories>
+					<testCasesDirectory>${project.basedir}/src/test/resources</testCasesDirectory>
+
+					<logLevel>debug</logLevel>
+					<log>${generate.logs}</log>
+					<report>${generate.logs}</report>
+					<xunitFile>${generate.logs}</xunitFile>
+					<listeners>
+						<param>com.iontrading.robotframework.listener.TestListener</param>
+					</listeners>
+
+					<variables>
+						<param>ion.component.version:${ion.component.version}</param>
+					</variables>
+
+				</configuration>
+			</plugin>
+		</plugins>
+
+		<pluginManagement>
+			<plugins>
+
+				<!--This plugin's configuration is used to store Eclipse m2e settings 
+					only. It has no influence on the Maven build itself. -->
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>org.codehaus.groovy.maven</groupId>
+										<artifactId>gmaven-plugin</artifactId>
+										<versionRange>
+											[1.0,)
+										</versionRange>
+										<goals>
+											<goal>execute</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore></ignore>
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+
+			</plugins>
+		</pluginManagement>
+
+	</build>
+</project>

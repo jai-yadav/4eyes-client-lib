@@ -1,0 +1,50 @@
+components :
+
+      - !component
+           type     : daemon
+           versions : 116
+                            
+      - !component
+           type     : router_m
+           versions : 110
+                        
+      - !component
+           type     : mock_4eyes_data_owner
+           versions : 001
+           java_comp : true
+           repository : angstrom02_nexus
+           group_id : com.iontrading.cat.foureyes.mocks
+           artifact_id : mock_4eyes_data_owner
+           repo_version : 0.0.1-SNAPSHOT
+                        
+      - !component
+           type     : mock_4eyes_server
+           versions : 001
+           java_comp : true
+           repository : angstrom02_nexus
+           group_id : com.iontrading.cat.foureyes.mocks
+           artifact_id : mock_4eyes_server
+           repo_version : 0.0.1-SNAPSHOT
+                        
+      - !component
+            type : demo4eyes
+            versions: 001
+            java_comp : true
+            repository : ion_nexus
+            group_id : com.iontrading.cat
+            artifact_id : demo4eyes
+            repo_version : 0.0.1-alpha-11
+      
+      - !component
+           type     : autorobot
+           versions : 301p5   
+           java_comp : false
+           repository  : ion_nexus
+           group_id    : com.iontrading.cat.acceptance_tests
+           artifact_id : autorobot
+           repo_version : 301p5
+           classifier : release-amd64-linux
+           file_ext : zip
+                        
+web_modules :
+

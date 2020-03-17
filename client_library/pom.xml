@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.iontrading</groupId>
+		<artifactId>ion-parent</artifactId>
+		<version>1.1.9</version>
+	</parent>
+
+	<groupId>com.iontrading.cat.foureyes</groupId>
+	<artifactId>4eyes_client_lib</artifactId>
+	<version>0.0.1-alpha-7-SNAPSHOT</version>
+	<name>4eyes client library</name>
+	<packaging>jar</packaging>
+
+	<properties>
+		<java.target.version>1.8</java.target.version>
+	</properties>
+
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>com.iontrading</groupId>
+				<artifactId>ion20-deps</artifactId>
+				<version>1.2.15</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.iontrading</groupId>
+				<artifactId>ion-3rd-party-deps</artifactId>
+				<version>1.0.0</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<!--This plugin's configuration is used to store Eclipse m2e settings 
+					only. It has no influence on the Maven build itself. -->
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>org.codehaus.gmaven</groupId>
+										<artifactId>groovy-maven-plugin</artifactId>
+										<versionRange>
+											[2.0,)
+										</versionRange>
+										<goals>
+											<goal>execute</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore />
+									</action>
+								</pluginExecution>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>org.apache.maven.plugins</groupId>
+										<artifactId>maven-enforcer-plugin</artifactId>
+										<versionRange>
+											[1.1,)
+										</versionRange>
+										<goals>
+											<goal>enforce</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore />
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.iontrading.isf</groupId>
+			<artifactId>modules</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.iontrading.isf</groupId>
+			<artifactId>boot</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.iontrading.talk</groupId>
+			<artifactId>talk.ionbus</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.iontrading.isf</groupId>
+			<artifactId>dependency_manager</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.iontrading.isf</groupId>
+			<artifactId>dependency_manager</artifactId>
+			<classifier>tests</classifier>
+		</dependency>
+		<dependency>
+			<groupId>com.iontrading.xrs</groupId>
+			<artifactId>xrs_lib</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.9.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.iontrading.isf</groupId>
+			<artifactId>tracing</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.iontrading.isf</groupId>
+			<artifactId>tracing</artifactId>
+			<classifier>tests</classifier>
+		</dependency>
+		<dependency>
+			<groupId>com.iontrading.isf</groupId>
+			<artifactId>tracing</artifactId>
+			<classifier>tests</classifier>
+		</dependency>
+		<dependency>
+			<groupId>com.iontrading.isf</groupId>
+			<artifactId>service_manager</artifactId>
+			<classifier>tests</classifier>
+		</dependency>
+		<dependency>
+			<groupId>com.iontrading.xrs</groupId>
+			<artifactId>xrs_lib</artifactId>
+			<classifier>tests</classifier>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.9.8</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+			<version>2.9.8</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-annotations</artifactId>
+			<version>2.9.8</version>
+		</dependency>
+	</dependencies>
+
+</project>

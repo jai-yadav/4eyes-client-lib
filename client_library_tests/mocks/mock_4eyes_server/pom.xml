@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.iontrading.cat.foureyes.mocks</groupId>
+	<artifactId>mock_4eyes_server</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>mock 4-eyes server application</name>
+	<description>A simple ION 2.0 application template</description>
+
+	<!-- This project package step complies with the official CAT packaging 
+		guidelines for Java components, see https://confluence.iontrading.com/display/CAT/Java+Packaging+and+Release -->
+
+	<parent>
+		<groupId>com.iontrading</groupId>
+		<artifactId>ion-parent</artifactId>
+		<version>1.1.3</version>
+	</parent>
+
+	<properties>
+		<ion.mainClass>com.iontrading.cat.foureyes.mock.server.Main</ion.mainClass>
+		<java.target.version>1.8</java.target.version>
+	</properties>
+
+	<!-- move this section in your parent pom if you have one -->
+	<dependencyManagement>
+		<dependencies>
+			<!-- ION 2.0 Dependency POM, see http://confluence.iontrading.com/display/CAT/ION+2.0+dependency+pom 
+				Check on nexus for the latest release. -->
+			<dependency>
+				<groupId>com.iontrading</groupId>
+				<artifactId>ion20-deps</artifactId>
+				<version>1.2.7</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.iontrading</groupId>
+				<artifactId>ion-3rd-party-deps</artifactId>
+				<version>1.0.0</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<build>
+
+		<plugins>
+			<!-- generate startup scripts. Remove this plugin if you don't want to 
+				generate the legacy startup scripts -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>appassembler-maven-plugin</artifactId>
+				<version>1.8.1</version>
+				<executions>
+					<execution>
+						<id>generate-app-scripts</id>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>assemble</goal>
+						</goals>
+						<configuration>
+
+							<platforms>
+								<platform>unix</platform>
+								<platform>windows</platform>
+							</platforms>
+
+							<assembleDirectory>${project.build.directory}/ion-component</assembleDirectory>
+							<binFolder>legacy_bin</binFolder>
+							<unixScriptTemplate>src/main/templates/unixScriptTemplate.sh</unixScriptTemplate>
+							<windowsScriptTemplate>src/main/templates/windowsScriptTemplate.bat</windowsScriptTemplate>
+
+							<!-- NOTE these jvm parameters will be set into the final launch scripts -->
+							<extraJvmArguments>-server -Xmx1024m -Xms1024m
+								-XX:+UseConcMarkSweepGC</extraJvmArguments>
+
+							<licenseHeaderFile />
+
+							<binFileExtensions>
+								<unix>.sh</unix>
+							</binFileExtensions>
+							<repositoryLayout>flat</repositoryLayout>
+							<repositoryName>%COMPONENTBINDIR%/lib</repositoryName>
+							<generateRepository>false</generateRepository>
+							<includeConfigurationDirectoryInClasspath>false</includeConfigurationDirectoryInClasspath>
+
+							<programs>
+								<program>
+									<mainClass>${ion.mainClass}</mainClass>
+									<id>${ion.component.type}${ion.component.version}</id>
+								</program>
+							</programs>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+
+		</plugins>
+
+
+
+
+		<pluginManagement>
+			<plugins>
+
+				<!--This plugin's configuration is used to store Eclipse m2e settings 
+					only. It has no influence on the Maven build itself. -->
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>org.codehaus.gmaven</groupId>
+										<artifactId>groovy-maven-plugin</artifactId>
+										<versionRange>
+											[2.0,)
+										</versionRange>
+										<goals>
+											<goal>execute</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore></ignore>
+									</action>
+								</pluginExecution>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>org.apache.maven.plugins</groupId>
+										<artifactId>maven-enforcer-plugin</artifactId>
+										<versionRange>
+											[1.1,)
+										</versionRange>
+										<goals>
+											<goal>enforce</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore></ignore>
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+
+			</plugins>
+		</pluginManagement>
+	</build>
+
+
+	<dependencies>
+		<dependency>
+			<groupId>com.iontrading.isf</groupId>
+			<artifactId>application_server</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.iontrading.isf</groupId>
+			<artifactId>tracing</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.iontrading.jmix</groupId>
+			<artifactId>jmix_logging</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.iontrading.talk</groupId>
+			<artifactId>talk.ionbus</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.iontrading.xrs</groupId>
+			<artifactId>xrs_lib</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.iontrading.isf</groupId>
+			<artifactId>service_manager</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.iontrading.isf</groupId>
+			<artifactId>workflow_engine</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.iontrading.cat.foureyes</groupId>
+			<artifactId>4eyes_client_lib</artifactId>
+			<version>0.0.1-alpha-6-SNAPSHOT</version>
+		</dependency>
+	</dependencies>
+
+</project>

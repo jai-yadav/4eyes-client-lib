@@ -1,0 +1,371 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+html {
+  font-family: Arial,Helvetica,sans-serif;
+  background-color: white;
+  color: black;
+}
+table {
+  border-collapse: collapse;
+  empty-cells: show;
+  margin: 1em 0em;
+  border: 1px solid black;
+}
+th, td {
+  border: 1px solid black;
+  padding: 0.1em 0.2em;
+  height: 1.5em;
+  width: 12em;
+}
+td.colspan4, th.colspan4 {
+    width: 48em;
+}
+td.colspan3, th.colspan3 {
+    width: 36em;
+}
+td.colspan2, th.colspan2 {
+    width: 24em;
+}
+th {
+  background-color: rgb(192, 192, 192);
+  color: black;
+  height: 1.7em;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 0.1em;
+}
+td.name {
+  background-color: rgb(240, 240, 240);
+  letter-spacing: 0.1em;
+}
+td.name, th.name {
+  width: 10em;
+}
+</style>
+<title>Common</title>
+</head>
+<body>
+<h1>Common</h1>
+<table border="1" id="setting">
+<tr>
+<th class="name" colspan="5">Settings</th>
+</tr>
+<tr>
+<td class="name">Library</td>
+<td>OperatingSystem</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name">Library</td>
+<td>Collections</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</table>
+<table border="1" id="keyword">
+<tr>
+<th class="name" colspan="5">Keywords</th>
+</tr>
+<tr>
+<td class="name"><a name="keyword_Create Non-Null Varargs List">Create Non-Null Varargs List</a></td>
+<td>[Arguments]</td>
+<td>@{varArgCommands}</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>${size}=</td>
+<td>Get Length</td>
+<td>${varArgCommands}</td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>@{varArgs}=</td>
+<td>Create List</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>: FOR</td>
+<td>${index}</td>
+<td>IN RANGE</td>
+<td>0</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>...</td>
+<td>${size}</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td></td>
+<td>${key}=</td>
+<td>Set Variable</td>
+<td>@{varArgCommands}[${index}]</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td></td>
+<td>${argValue}=</td>
+<td>Set Variable</td>
+<td>@{varArgCommands}[${index+1}]</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td></td>
+<td>Run Keyword If</td>
+<td>'${argValue}'!='${null}'</td>
+<td>Append To List</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td></td>
+<td>...</td>
+<td>${varArgs}</td>
+<td>${key}</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td></td>
+<td>...</td>
+<td>${argValue}</td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>[Return]</td>
+<td>@{varArgs}</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"><a name="keyword_Open Queue DataOwner_Search4EyesRequestRecieved">Open Queue DataOwner_Search4EyesRequestRecieved</a></td>
+<td>${qId}=</td>
+<td>Ion Queue Define</td>
+<td>${4E_Data_Owner}</td>
+<td>Search4EyesRequestRecieved</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>${func}=</td>
+<td>Ion Queue Call</td>
+<td>${qId}</td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>[Return]</td>
+<td>${qId}</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"><a name="keyword_Open Queue Server_SearchFourEyesRequest">Open Queue Server_SearchFourEyesRequest</a></td>
+<td>${qId}=</td>
+<td>Ion Queue Define</td>
+<td>${Active_Server_Source}</td>
+<td>Search4EyesRequestForSubmitter</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>Ion Queue Set Var Args</td>
+<td>${qId}</td>
+<td>ProtocolVersion</td>
+<td>1</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>${func}=</td>
+<td>Ion Queue Call</td>
+<td>${qId}</td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>[Return]</td>
+<td>${qId}</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"><a name="keyword_Verify Records On Queue">Verify Records On Queue</a></td>
+<td>[Arguments]</td>
+<td>${qid}</td>
+<td>${requestId}</td>
+<td>@{fieldsToVerify}</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>${recObj}=</td>
+<td>Ion Queue Verify Record</td>
+<td>${qid}</td>
+<td>RequestId</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>...</td>
+<td>${requestId}</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>${size}=</td>
+<td>Get Length</td>
+<td>${fieldsToVerify}</td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>: FOR</td>
+<td>${index}</td>
+<td>IN RANGE</td>
+<td>0</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>...</td>
+<td>${size}</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td></td>
+<td>${key}=</td>
+<td>Set Variable</td>
+<td>@{fieldsToVerify}[${index}]</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td></td>
+<td>${argValue}=</td>
+<td>Set Variable</td>
+<td>@{fieldsToVerify}[${index+1}]</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td></td>
+<td>Should be equal</td>
+<td>${recObj.getFieldValue('${key}')}</td>
+<td>${argValue}</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"><a name="keyword_Remove Four Eyes Server Connection">Remove Four Eyes Server Connection</a></td>
+<td>Wait Until Keyword Succeeds</td>
+<td>3 times</td>
+<td>5s</td>
+<td>Ion Remove Connection</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>...</td>
+<td>${router}</td>
+<td>${Active_Server_Source}</td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"><a name="keyword_Create Four Eyes Server Connection">Create Four Eyes Server Connection</a></td>
+<td>Wait Until Keyword Succeeds</td>
+<td>3 times</td>
+<td>5s</td>
+<td>Ion Create Connection</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>...</td>
+<td>${router}</td>
+<td>${Active_Server_Source}</td>
+<td>inout</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>Ion Wait For Components Running</td>
+<td>${Active_Server_Source}</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"><a name="keyword_Wait and Verify Records On Queue">Wait and Verify Records On Queue</a></td>
+<td>[Arguments]</td>
+<td>${qid}</td>
+<td>${requestId}</td>
+<td>@{fieldsToVerify}</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>Wait Until Keyword Succeeds</td>
+<td>3 times</td>
+<td>5s</td>
+<td>Verify Records On Queue</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>...</td>
+<td>${qid}</td>
+<td>${requestId}</td>
+<td>@{fieldsToVerify}</td>
+</tr>
+</table>
+</body>
+</html>

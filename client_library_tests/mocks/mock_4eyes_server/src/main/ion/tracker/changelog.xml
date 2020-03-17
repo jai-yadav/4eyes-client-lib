@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<document xsi:schemaLocation="http://pinexus01.iontrading.com:8081/nexus/content/groups/public/com/iontrading/tracker-changelog/1.0.1/tracker-changelog-1.0.1.xsd" xmlns="tracker-changelog-1.0.1.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  
+  
+  <changelog component="Daemon">
+
+    <release version="100p1" date="2015-12-04" summary="Fix for ...">
+      <notes>
+        The details about the fix...
+      </notes>
+      <requirements>
+        <dependency component="sysadmin" version="216"/>
+        <dependency component="mkvtool" version="106"/>          
+        <notes>
+          notes about requirements
+        </notes>
+      </requirements>
+      <compatibility>     
+        compatibility notes here
+      </compatibility>
+
+      <enhancements>
+        <enhancement enhancementId="IAP-99998" visibleToClient="yes" title="Fix title">
+          <description>enhancement description</description>
+        </enhancement>
+        <enhancement enhancementId="IAP-99999" visibleToClient="yes" title="Second Fix title">
+          <description>second enhancement description</description>
+        </enhancement>
+      </enhancements>
+
+      <newFeatures>
+        <feature visibleToClient="yes" title="feature">
+          <description>new feature description</description>
+        </feature>
+        <feature visibleToClient="yes" title="feature">
+          <description>second new feature description</description>
+        </feature>
+      </newFeatures>
+
+      <fixes>
+        <fix visibleToClient="yes" fixId="none" title="Fix title">
+          <description>fix description</description>
+        </fix>
+        <fix visibleToClient="yes" fixId="none" title="Second fix title">
+          <description>second fix description</description>
+        </fix>
+      </fixes>
+
+<knownLimitations>  
+  </knownLimitations>
+
+      <internalNotes>
+        This version has been fully tested from development side (Integration Tests in Continuous Integration environments). No external test is required.
+      </internalNotes>
+
+    </release>
+  </changelog>
+</document>

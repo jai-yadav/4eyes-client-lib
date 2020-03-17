@@ -1,0 +1,665 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+html {
+  font-family: Arial,Helvetica,sans-serif;
+  background-color: white;
+  color: black;
+}
+table {
+  border-collapse: collapse;
+  empty-cells: show;
+  margin: 1em 0em;
+  border: 1px solid black;
+}
+th, td {
+  border: 1px solid black;
+  padding: 0.1em 0.2em;
+  height: 1.5em;
+  width: 12em;
+}
+td.colspan4, th.colspan4 {
+    width: 48em;
+}
+td.colspan3, th.colspan3 {
+    width: 36em;
+}
+td.colspan2, th.colspan2 {
+    width: 24em;
+}
+th {
+  background-color: rgb(192, 192, 192);
+  color: black;
+  height: 1.7em;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 0.1em;
+}
+td.name {
+  background-color: rgb(240, 240, 240);
+  letter-spacing: 0.1em;
+}
+td.name, th.name {
+  width: 10em;
+}
+</style>
+<title>Funtions</title>
+</head>
+<body>
+<h1>Funtions</h1>
+<table border="1" id="setting">
+<tr>
+<th class="name" colspan="5">Settings</th>
+</tr>
+<tr>
+<td class="name">Library</td>
+<td>OperatingSystem</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name">Library</td>
+<td>Collections</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</table>
+<table border="1" id="keyword">
+<tr>
+<th class="name" colspan="5">Keywords</th>
+</tr>
+<tr>
+<td class="name"><a name="keyword_Approve Pending Request 4ES">Approve Pending Request 4ES</a></td>
+<td>[Arguments]</td>
+<td>${id}</td>
+<td>${Comment}</td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>Ion Function Define</td>
+<td>${Active_Server_Source}</td>
+<td>Approve4EyesRequest</td>
+<td>ProtocolVersion</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>...</td>
+<td>1</td>
+<td>RequestId</td>
+<td>${id}</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>Ion Function Set Var Args</td>
+<td>Comment</td>
+<td>${Comment}</td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>Ion Function Set Timeout</td>
+<td>30s</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>Ion Function Verify Like Result</td>
+<td>0:OK</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>Ion Function Call</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"><a name="keyword_Withdraw Pending Request DO">Withdraw Pending Request DO</a></td>
+<td>[Arguments]</td>
+<td>${requestId}</td>
+<td>${comment}=${null}</td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>Ion Function Define</td>
+<td>${4E_Data_Owner}</td>
+<td>WithdrawPendingRequest</td>
+<td>RequestId</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>...</td>
+<td>${requestId}</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>Run Keyword If</td>
+<td>'${comment}'!='${null}'</td>
+<td>Ion Function Set Var Args</td>
+<td>Comment</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>...</td>
+<td>${comment}</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>Ion Function Set Timeout</td>
+<td>30s</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>Ion Function Verify Like Result</td>
+<td>0:OK</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>Ion Function Call</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"><a name="keyword_Clear Old Notifications DO">Clear Old Notifications DO</a></td>
+<td>Ion Function Define</td>
+<td>${4E_Data_Owner}</td>
+<td>Clear4EyesRequestRecieved</td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>Ion Function Set Timeout</td>
+<td>30s</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>Ion Function Verify Like Result</td>
+<td>0:OK</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>Ion Function Call</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"><a name="keyword_Clear Old Requests 4ES">Clear Old Requests 4ES</a></td>
+<td>Ion Function Define</td>
+<td>${Active_Server_Source}</td>
+<td>DeleteAllRequests</td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>Ion Function Set Timeout</td>
+<td>30s</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>Ion Function Verify Like Result</td>
+<td>0:OK</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>Ion Function Call</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"><a name="keyword_Enable Or Disable Acknowledgement DO">Enable Or Disable Acknowledgement DO</a></td>
+<td>[Arguments]</td>
+<td>${EnableOrDisable}</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>Ion Function Define</td>
+<td>${4E_Data_Owner}</td>
+<td>EnableOrDisableAcknowledgement</td>
+<td>EnableOrDisable</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>...</td>
+<td>${EnableOrDisable}</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>Ion Function Set Timeout</td>
+<td>30s</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>Ion Function Verify Like Result</td>
+<td>0:OK</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>Ion Function Call</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"><a name="keyword_Process Or Deny Changes DO">Process Or Deny Changes DO</a></td>
+<td>[Arguments]</td>
+<td>${ProcessOrDeny}</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>Ion Function Define</td>
+<td>${4E_Data_Owner}</td>
+<td>ProcessOrDenyChanges</td>
+<td>ProcessOrDeny</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>...</td>
+<td>${ProcessOrDeny}</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>Ion Function Set Timeout</td>
+<td>30s</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>Ion Function Verify Like Result</td>
+<td>0:OK</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>Ion Function Call</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"><a name="keyword_Reject Pending Request 4ES">Reject Pending Request 4ES</a></td>
+<td>[Arguments]</td>
+<td>${id}</td>
+<td>${Comment}</td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>Ion Function Define</td>
+<td>${Active_Server_Source}</td>
+<td>Reject4EyesRequest</td>
+<td>ProtocolVersion</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>...</td>
+<td>1</td>
+<td>RequestId</td>
+<td>${id}</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>Ion Function Set Var Args</td>
+<td>Comment</td>
+<td>${Comment}</td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>Ion Function Set Timeout</td>
+<td>30s</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>Ion Function Verify Like Result</td>
+<td>0:OK</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>Ion Function Call</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"><a name="keyword_Submit Four Eye Request DO">Submit Four Eye Request DO</a></td>
+<td>[Arguments]</td>
+<td>${ExpectedResult}</td>
+<td>${EntitlementFeature}</td>
+<td>${EntitlementNamespace}</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>...</td>
+<td>${EntitlementResource}</td>
+<td>${EntityCategory}</td>
+<td>${EntityDescription}</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>...</td>
+<td>${EntityName}</td>
+<td>${RequestedBy}</td>
+<td>${Comment}=${null}</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>...</td>
+<td>${ExternalId}=${null}</td>
+<td>${RequestGroup}=${null}</td>
+<td>${RequestNamespace}=${null}</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>...</td>
+<td>${RequestReason}=${null}</td>
+<td>${RequestReasonDescription}=${null}</td>
+<td>${UserData}=${null}</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>...</td>
+<td>${CustomFieldName}=${null}</td>
+<td>${CustomFieldDisplayName}=${null}</td>
+<td>${CustomFieldDescription}=${null}</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>...</td>
+<td>${CustomFieldType}=${null}</td>
+<td>${CustomFieldValue}=${null}</td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>Ion Function Define</td>
+<td>${4E_Data_Owner}</td>
+<td>SubmitPendingRequest</td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>@{ConsolidatedArgs}=</td>
+<td>Create Non-Null Varargs List</td>
+<td>Comment</td>
+<td>${Comment}</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>...</td>
+<td>ExternalId</td>
+<td>${ExternalId}</td>
+<td>RequestGroup</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>...</td>
+<td>${RequestGroup}</td>
+<td>RequestNamespace</td>
+<td>${RequestNamespace}</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>...</td>
+<td>RequestReason</td>
+<td>${RequestReason}</td>
+<td>RequestReasonDescription</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>...</td>
+<td>${RequestReasonDescription}</td>
+<td>UserData</td>
+<td>${UserData}</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>...</td>
+<td>CustomFieldName</td>
+<td>${CustomFieldName}</td>
+<td>CustomFieldDisplayName</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>...</td>
+<td>${CustomFieldDisplayName}</td>
+<td>CustomFieldDescription</td>
+<td>${CustomFieldDescription}</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>...</td>
+<td>CustomFieldType</td>
+<td>${CustomFieldType}</td>
+<td>CustomFieldValue</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>...</td>
+<td>${CustomFieldValue}</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>Append To List</td>
+<td>${ConsolidatedArgs}</td>
+<td>EntitlementFeature</td>
+<td>${EntitlementFeature}</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>...</td>
+<td>EntitlementNamespace</td>
+<td>${EntitlementNamespace}</td>
+<td>EntitlementResource</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>...</td>
+<td>${EntitlementResource}</td>
+<td>EntityCategory</td>
+<td>${EntityCategory}</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>...</td>
+<td>EntityDescription</td>
+<td>${EntityDescription}</td>
+<td>EntityName</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>...</td>
+<td>${EntityName}</td>
+<td>RequestedBy</td>
+<td>${RequestedBy}</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>...</td>
+<td>EntityType</td>
+<td>MockEntity</td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>Ion Function Set Var Args</td>
+<td>@{ConsolidatedArgs}</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>Ion Function Set Timeout</td>
+<td>5s</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>Ion Function Verify Like Result</td>
+<td>${ExpectedResult}</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>${fResObj}=</td>
+<td>Ion Function Call</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>${requestId}=</td>
+<td>Set Variable</td>
+<td>${fResObj.getResultAsString('Value')}</td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>Remove Values From List</td>
+<td>${ConsolidatedArgs}</td>
+<td>Comment</td>
+<td>${Comment}</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>Append to List</td>
+<td>${ConsolidatedArgs}</td>
+<td>ActionComment</td>
+<td>${Comment}</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>...</td>
+<td>Details</td>
+<td>{"version":1,"entities":[{"id":"dummy","fields":[{"name":"f1","highlight":true,"value":"v1"},{"name":"f2","highlight":true,"value":"v2"}]}]}</td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>Set Test Variable</td>
+<td>@{ConsolidatedArgs}</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>Set Test Variable</td>
+<td>${ExpectedResult}</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>[Return]</td>
+<td>${requestId}</td>
+<td></td>
+<td></td>
+</tr>
+</table>
+</body>
+</html>

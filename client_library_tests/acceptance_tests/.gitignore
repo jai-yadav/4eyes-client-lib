@@ -1,0 +1,7 @@
+/m2_repo/
+/platform_logs/
+/dm_logs/
+/ion_repo/
+/installer_logs/
+/target/
+bin

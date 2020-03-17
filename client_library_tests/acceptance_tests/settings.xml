@@ -1,0 +1,64 @@
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+	<interactiveMode />
+	<usePluginRegistry />
+	<offline />
+	<pluginGroups />
+	<mirrors>
+		<mirror>
+			<id>nexus</id>
+			<mirrorOf>*</mirrorOf>
+			<url>http://angstrom02.iontrading.com:8081/content/groups/public</url>
+		</mirror>
+	</mirrors>
+	<proxies />
+	<profiles>
+		<profile>
+			<id>nexus</id>
+			<!-- Enable snapshots for the built in central repo to direct -->
+			<!-- all requests to nexus via the mirror -->
+			<repositories>
+				<repository>
+					<id>central</id>
+					<!-- This is a dummy URL that will be redirected to Nexus using the 
+						nexus mirror -->
+					<url>http://central</url>
+					<releases>
+						<enabled>true</enabled>
+					</releases>
+					<snapshots>
+						<enabled>true</enabled>
+						<updatePolicy>always</updatePolicy>
+					</snapshots>
+				</repository>
+			</repositories>
+			<pluginRepositories>
+				<pluginRepository>
+					<id>central</id>
+					<!-- This is a dummy URL that will be redirected to Nexus using the 
+						nexus mirror -->
+					<url>http://central</url>
+					<releases>
+						<enabled>true</enabled>
+					</releases>
+					<snapshots>
+						<enabled>true</enabled>
+						<updatePolicy>always</updatePolicy>
+					</snapshots>
+				</pluginRepository>
+			</pluginRepositories>
+		</profile>
+
+		<profile>
+			<id>explorer_tests</id>
+			<properties>
+				<nexus_url>angstrom02.iontrading.com:8081</nexus_url>
+			</properties>
+		</profile>
+	</profiles>
+	<activeProfiles>
+		<activeProfile>nexus</activeProfile>
+		<activeProfile>explorer_tests</activeProfile>
+	</activeProfiles>
+</settings>

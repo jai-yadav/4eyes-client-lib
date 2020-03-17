@@ -1,0 +1,64 @@
+{anchor:introduction}
+h1. Introduction
+
+h2. Prerequisites (optional) 
+This paragraph must describes shortly which are the necessary prerequisites for the reader, if any. In case, please provide links to external documentation (max 500 chars).
+
+h2. What it is for
+Brief introduction used to describe what the current library does and which problems addresses. If needed, please put some background information. This section is intended to be read quickly by someone that doesn't know anyhting about the library and wants to have an idea about it (max 1000 chars).
+
+h2. When to use it
+This section can be used to describe, possibly through a practical use case, the recommended usage for the current library. The intention of this section is to quickly drive the reader in the right direction about the intended use of the library (max 1000 chars).
+
+h2. When not to use it (optional)
+In some cases it could be useful also to clearly state known scenarios where the library must not be used (max 1000 chars).
+
+----
+{anchor:gettingstarted}
+h1. Getting started
+
+h2. POM reference
+This section just shows the Maven artifact coordinates: 
+
+{code}
+		<dependency>
+			<groupId>com.iontrading.isf</groupId>
+			<artifactId>NAME OF THE PROJECT HERE</artifactId>
+		</dependency>
+{code}
+
+h2. Guice module
+This section just shows which Guice modules must be referred:
+
+{code}
+@ModuleDescriptor(requires = {LIBRARY MODULE NAME HERE.class})
+public class UserApplicationModule extends AbstractModule {
+@Override
+    protected void configure() {
+        //...
+    }
+}
+{code}
+
+h2. Getting started sample
+This paragraph must quicly show - to a potentially interested reader - how to use the main feature(s) of the library, through the usage of code for a main use case (possibly retrieve from the sample code) (max 1500 chars).
+
+----
+
+h2. Body (Developer's Guide)
+This is the central part of the documentation and it must be used to provide further details about any relevant aspect or feature offered by the library.
+It can be broken down in many sub-paragraphs, and it's recommended to put a link to them in the site.xml (using anchors) to simplify the user's navigation.
+(no limit) 
+
+----
+_This is an example about using images within the documentation. The source file is stored in /src/site/resources/images folder_
+
+!./images/ion_logo.png!
+
+----
+
+h2. Limitations (optional)
+Describes here the current limitations, if any.
+
+ 	
+ 	

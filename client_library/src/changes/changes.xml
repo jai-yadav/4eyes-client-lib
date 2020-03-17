@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document
+	xmlns="http://trota.iontrading.com/project-sites/changes-1.0.0-ION.xsd"
+	xsi:schemaLocation="http://trota.iontrading.com/project-sites/changes-1.0.0-ION.xsd http://trota.iontrading.com/project-sites/changes-1.0.0-ION.xsd"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<properties>
+		<author>ION 2.0 team</author>
+	</properties>
+
+	<body>
+		<release version="0.0.1" date="1900-00-00" description="Sprint 00">
+			<action type="add" public="true" issue="IONTWOZERO-000">
+				Enter the description here
+			</action>
+		</release>
+
+	</body>
+
+</document>

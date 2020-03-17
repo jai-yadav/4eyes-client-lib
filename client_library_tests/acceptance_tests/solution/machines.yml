@@ -1,0 +1,20 @@
+machines:
+
+  - !machine
+    address    :    platform_host1:13000
+    os         :    linux64
+    master     :    true
+    daemon_name:    DM
+ 
+control_host :  localhost
+
+file_sys:
+   root_linux64   : /platform
+
+
+jvms:
+   OPENJDK_1.8  : /usr/bin/java 
+
+install_as_service : false
+
+

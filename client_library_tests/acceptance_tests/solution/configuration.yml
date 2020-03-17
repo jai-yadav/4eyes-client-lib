@@ -1,0 +1,110 @@
+components :    
+    # Component ROUTER_M with minimal settings
+    - !component
+       name       : ROUTER_M
+       type       : router_m
+       connections:
+          TEST_RUNNER : inout
+       configurations:
+          ScheduleTemplate: Default-24/7
+       java_settings:
+          _JVM_CLASSPATH : \*
+          _JVM_JAVARGS: -Xms1024m -Xmx1024m -Xss512k -XX:+UseConcMarkSweepGC -XX:+CMSIncrementalMode -server
+          _JVM_MAINCLASS: com.iontrading.mkv.Router
+
+    - !component
+       name       : ROUTER_M_4DEV
+       type       : router_m
+       settings: 
+          LISTEN  : 13248
+          WWW     : localhost
+          WWWPORT : 13248
+
+       connections:
+          ROUTER_M : inout
+       configurations:
+          ScheduleTemplate: Default-24/7
+       java_settings:
+          _JVM_CLASSPATH : \*
+          _JVM_JAVARGS: -Xms1024m -Xmx1024m -Xss512k -XX:+UseConcMarkSweepGC -XX:+CMSIncrementalMode -server
+          _JVM_MAINCLASS: com.iontrading.mkv.Router
+              
+    - !component
+       name       : mock_4eyes_data_owner
+       type       : mock_4eyes_data_owner
+       settings:
+         source            : mock_4eyes_data_owner
+         currency          : ANY 
+         LISTEN            : \*
+         debug             : 1
+         log_threshold     : 1
+         ext.log_threshold : 1
+
+       connections:
+          ROUTER_M : inout
+
+       java_settings :
+          _JVM_CLASSPATH : \*
+          _JVM_JAVARGS: -Xms1024m -Xmx1024m -XX:+UseG1GC -XX:+HeapDumpOnOutOfMemoryError
+          _JVM_MAINCLASS : com.iontrading.cat.foureyes.mock.dataowner.Main
+              
+    - !component
+       name       : mock_4eyes_server
+       type       : mock_4eyes_server
+       settings:
+         source            : mock_4eyes_server
+         currency          : ANY 
+         LISTEN            : \*
+         debug             : 1
+         log_threshold     : 1
+         ext.log_threshold : 1
+
+       connections:
+          ROUTER_M : inout
+
+       java_settings :
+          _JVM_CLASSPATH : \*
+          _JVM_JAVARGS: -Xms1024m -Xmx1024m -XX:+UseG1GC -XX:+HeapDumpOnOutOfMemoryError
+          _JVM_MAINCLASS : com.iontrading.cat.foureyes.mock.server.Main
+              
+    - !component
+       name       : FourEyesServer
+       type       : demo4eyes
+       settings:
+         source            : FourEyesServer
+         currency          : ANY 
+         LISTEN            : \*
+         debug             : 1
+         log_threshold     : 1
+         ext.log_threshold : 1
+         DB.TYPE : MYSQL5
+         DB.HOST : mysql_dbserver
+         DB.PORT : 3306
+         DB.NAME : plat
+         DB.USER : plat
+         DB.PASSWORD : plat
+         db.hbm2ddl.auto : create
+
+       connections:
+          ROUTER_M : inout
+
+       java_settings :
+          _JVM_CLASSPATH : \*
+          _JVM_JAVARGS: -Xms1024m -Xmx1024m -XX:+UseG1GC -XX:+HeapDumpOnOutOfMemoryError
+          _JVM_MAINCLASS : com.iontrading.cat.four_eyes_server.Main
+          
+    - !component
+       name       : AUTOROBOT
+       type       : autorobot
+       executable : mkvdplayer
+       settings:
+         source : Robot
+         currency : ANY
+         debug : 1         
+         ISMANAGER : 1
+         SCRIPT : autoframe.ipc
+         AUTOTESTS : autorobot.ipc
+       
+       connections:
+          ROUTER_M : inout 
+              

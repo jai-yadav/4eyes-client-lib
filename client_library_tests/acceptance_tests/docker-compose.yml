@@ -1,0 +1,56 @@
+version: '3'
+
+services:
+
+  platform_host1:
+    image: 10.100.80.48:5000/devkit/dbms_client_host:1.1.18
+    networks:
+    - default
+    ports:
+    - "2201:22"
+    - "13248:13248"
+    - "14010:14010"
+    - "14012:14012"
+    - "13000:13000"
+    - "8080:8080"
+    - "8090:8090"
+    volumes:
+    - ./wrk/dm_logs:/platform/daemon/DM/LOGS
+    - ./wrk/platform_logs:/platform/log
+
+  controller_host:
+    image: 10.100.80.48:5000/devkit/controller_host:1.1.18
+    networks:
+    - default
+    volumes:
+    - .:/src
+    - ./wrk/m2_repo:/root/.m2/repository
+    - ./wrk/ion_repo:/root/.ion
+    - ./wrk/installer_logs:/installer/autoconfx/LOGS
+    - ./config/autoconfx.properties:/installer/autoconfx/config/autoconfx.properties
+    - ./solution/solution.yml:/installer/autoconfx/solution/solution.yml
+    - ./solution/configuration.yml:/installer/autoconfx/solution/configuration.yml
+    - ./solution/machines.yml:/installer/autoconfx/solution/machines.yml
+    - ./solution/environment.yml:/installer/autoconfx/solution/environment.yml
+    command: ["RUN apk add --no-cache bash","/bin/bash","-c","echo STARTED"]
+
+  mysql_dbserver:
+    image: mysql:5.5.54
+    networks:
+    - default
+    environment:
+    - MYSQL_ROOT_PASSWORD=root
+    - MYSQL_DATABASE=plat
+    - MYSQL_USER=plat
+    - MYSQL_PASSWORD=plat
+    ports:
+    - 3306:3306
+
+  maven_test_runner:
+    image: 10.100.80.48:5000/iondev/maven:3.0.5-jdk8
+    networks:
+    - default
+    volumes:
+    - .:/src
+    - ./wrk/m2_repo:/root/.m2/repository
+

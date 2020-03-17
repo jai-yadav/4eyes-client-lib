@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.iontrading.cat.foureyes.mocks</groupId>
+	<artifactId>mock_4eyes_data_owner</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>mock 4-eyes data owner application</name>
+	<description>A simple ION 2.0 application template</description>
+
+	<!-- This project package step complies with the official CAT packaging 
+		guidelines for Java components, see https://confluence.iontrading.com/display/CAT/Java+Packaging+and+Release -->
+
+	<parent>
+		<groupId>com.iontrading</groupId>
+		<artifactId>ion-parent</artifactId>
+		<version>1.1.6</version>
+	</parent>
+
+
+	<properties>
+		<ion.mainClass>com.iontrading.cat.foureyes.mock.dataowner.Main</ion.mainClass>
+		<java.target.version>1.8</java.target.version>
+	</properties>
+
+	<!-- move this section in your parent pom if you have one -->
+	<dependencyManagement>
+		<dependencies>
+			<!-- ION 2.0 Dependency POM, see http://confluence.iontrading.com/display/CAT/ION+2.0+dependency+pom 
+				Check on nexus for the latest release. -->
+			<dependency>
+				<groupId>com.iontrading</groupId>
+				<artifactId>ion20-deps</artifactId>
+				<version>1.2.7</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.iontrading</groupId>
+				<artifactId>ion-3rd-party-deps</artifactId>
+				<version>1.0.0</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+
+				<!--This plugin's configuration is used to store Eclipse m2e settings 
+					only. It has no influence on the Maven build itself. -->
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>org.codehaus.gmaven</groupId>
+										<artifactId>groovy-maven-plugin</artifactId>
+										<versionRange>
+											[2.0,)
+										</versionRange>
+										<goals>
+											<goal>execute</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore></ignore>
+									</action>
+								</pluginExecution>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>org.apache.maven.plugins</groupId>
+										<artifactId>maven-enforcer-plugin</artifactId>
+										<versionRange>
+											[1.1,)
+										</versionRange>
+										<goals>
+											<goal>enforce</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore></ignore>
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+
+			</plugins>
+		</pluginManagement>
+	</build>
+
+
+	<dependencies>
+		<dependency>
+			<groupId>com.iontrading.cat.foureyes</groupId>
+			<artifactId>4eyes_client_lib</artifactId>
+			<version>0.0.1-alpha-6-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.iontrading.isf</groupId>
+			<artifactId>application_server</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.iontrading.isf</groupId>
+			<artifactId>tracing</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.iontrading.jmix</groupId>
+			<artifactId>jmix_logging</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.iontrading.talk</groupId>
+			<artifactId>talk.ionbus</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.iontrading.isf</groupId>
+			<artifactId>dependency_manager</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.iontrading.isf</groupId>
+			<artifactId>service_manager</artifactId>
+		</dependency>
+	</dependencies>
+
+</project>

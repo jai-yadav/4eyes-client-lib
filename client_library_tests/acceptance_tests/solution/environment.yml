@@ -1,0 +1,12 @@
+dbsources:
+
+- !dbsource 
+  NAME: DM
+  DB_TYPE: MYSQL
+  DB_URL : jdbc:mysql://mysql_dbserver:3306/plat
+  DB_DRIVER : com.mysql.jdbc.Driver
+  DB_USER: plat
+  DB_PWD : plat
+  DB_SCHEMA : plat
+  DB_HOST: mysql_dbserver
+  DB_PORT: 3306  
